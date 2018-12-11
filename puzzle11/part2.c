@@ -47,7 +47,7 @@ int sum_n_row(int x_offset, int y_offset, int n) {
 
 typedef struct _movingbuf {
 	int *start, *cur;
-	int buf[301];
+	int buf[300];
 } movingbuf;
 movingbuf sumbuf;
 
