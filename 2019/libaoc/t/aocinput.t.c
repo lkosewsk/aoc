@@ -4,10 +4,10 @@
 WVTEST_MAIN("basic functionality")
 {
 	char linebuf[512];
-	input_t *inp = setup_input("t/basic.txt");
+	input_t *inp = aocinput_setup("t/basic.txt");
 
-	int l = get_a_line(inp, linebuf);
+	int l = aocinput_getline(inp, linebuf);
 	WVPASSEQ(l, 2);
 
-	teardown_input(inp);
+	aocinput_teardown(inp);
 }

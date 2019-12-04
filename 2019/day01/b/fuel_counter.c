@@ -16,18 +16,18 @@ int main()
 	char linebuf[2048];
 	input_t *pfinfo;
 
-	pfinfo = setup_input("../input.txt");
+	pfinfo = aocinput_setup("../input.txt");
 
 	int line_len;
 	int total = 0;
-	while (line_len = get_a_line(pfinfo, linebuf)) {
+	while (line_len = aocinput_getline(pfinfo, linebuf)) {
 		int a = calculate_fuel(atoi(linebuf));
 		total += a;
 	}
 
 	printf("%d\n", total);
 
-	teardown_input(pfinfo);
+	aocinput_teardown(pfinfo);
 
 	return 0;
 }

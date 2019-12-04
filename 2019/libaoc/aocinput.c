@@ -18,7 +18,7 @@ struct _input_t {
 	ssize_t linebuf_size;
 };
 
-input_t *setup_input(const char filename[])
+input_t *aocinput_setup(const char filename[])
 {
 	input_t *r = (input_t *)malloc(sizeof(input_t));
 	r->lineidx = 0;
@@ -31,7 +31,7 @@ input_t *setup_input(const char filename[])
 	return r;
 }
 
-int teardown_input(input_t *pfinfo)
+int aocinput_teardown(input_t *pfinfo)
 {
 	close(pfinfo->fd);
 	free(pfinfo);
@@ -46,7 +46,7 @@ static ssize_t fill_input_buf(input_t *pfinfo)
 	return pfinfo->linebuf_size;
 }
 
-int get_a_line(input_t *pfinfo, char *output)
+int aocinput_getline(input_t *pfinfo, char *output)
 {
 	int output_loc = 0;
 	if (pfinfo->linebuf_size == 0) {
