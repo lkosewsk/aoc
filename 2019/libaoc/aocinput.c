@@ -46,7 +46,7 @@ static ssize_t fill_input_buf(input_t *pfinfo)
 	return pfinfo->linebuf_size;
 }
 
-int aocinput_getline(input_t *pfinfo, char *output)
+int aocinput_get_to_sep(input_t *pfinfo, char *output, char sep)
 {
 	int output_loc = 0;
 	if (pfinfo->linebuf_size == 0) {
@@ -59,7 +59,7 @@ int aocinput_getline(input_t *pfinfo, char *output)
 
 	while (1) {
 		const char *start = pfinfo->linebuf + pfinfo->lineidx;
-		const char *newline = index(start, '\n');
+		const char *newline = index(start, sep);
 		if (newline == NULL) {  // no newline located, read again
 			int l = strlen(start);
 			strcpy(output + output_loc, start);
