@@ -23,4 +23,4 @@ CPPFLAGS=-I.
 CFLAGS=$(O_LEVEL)
 
 clean:
-	rm -f $(OBJS) $(MYLIB)
+	rm -f *.o t/*.o $(MYLIB) wvtestmain
