@@ -1,2 +1,4 @@
-# aoc2018
-Advent of Code 2018 submissions
+# aoc
+Advent of Code submissions
+2018 partial
+2019 ongoing...
