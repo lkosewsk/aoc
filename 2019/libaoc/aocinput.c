@@ -33,8 +33,11 @@ input_t *aocinput_setup(const char filename[])
 
 int aocinput_teardown(input_t *pfinfo)
 {
-	close(pfinfo->fd);
-	free(pfinfo);
+	if (pfinfo) {
+		if (pfinfo->fd >= 0)
+			close(pfinfo->fd);
+		free(pfinfo);
+	}
 }
 
 static ssize_t fill_input_buf(input_t *pfinfo)
