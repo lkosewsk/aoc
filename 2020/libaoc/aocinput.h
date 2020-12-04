@@ -13,4 +13,6 @@ inline int aocinput_getline(input_t *pfinfo, char *output)
 	return aocinput_get_to_sep(pfinfo, output, '\n');
 }
 
+int aocinput_count_lines(const char filename[]);
+
 #endif
