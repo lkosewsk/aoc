@@ -4,7 +4,7 @@
 MYLIB:=libaoc.a
 all: $(MYLIB)
 
-OBJS=aocinput.o
+OBJS=aocinput.o board.o
 
 $(MYLIB): $(OBJS)
 
