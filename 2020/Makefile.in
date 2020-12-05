@@ -1,5 +1,5 @@
 
-.PHONY: all test clean
+.PHONY: all test clean force
 
 LIBAOCTARGET=../../libaoc/libaoc.a
 CPPFLAGS=-I../../libaoc
@@ -16,14 +16,13 @@ test: $(PROG)
 
 OBJS=$(filter-out main.o,$(patsubst %.c,%.o,$(wildcard *.c)))
 
-$(PROG): main.o $(OBJS) .stamp-libaoc
-	$(CC) -o $@ $(filter-out .stamp-%,$^) $(LDFLAGS)
+$(PROG): main.o $(OBJS) $(LIBAOCTARGET)
+	$(CC) -o $@ $(filter-out $(LIBAOCTARGET),$^) $(LDFLAGS)
 
-.stamp-libaoc: $(LIBAOCTARGET)
-	touch $@
-
-$(LIBAOCTARGET):
+$(LIBAOCTARGET): force
 	$(MAKE) -C ../../libaoc
 
+force:;
+
 clean:
-	rm -f $(PROG) main.o $(OBJS) .stamp-libaoc
+	rm -f $(PROG) main.o $(OBJS)
