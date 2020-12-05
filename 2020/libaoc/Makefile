@@ -22,7 +22,7 @@ wvtestmain: libwvtest.a $(TESTOBJS) $(MYLIB)
 
 O_LEVEL=-O1
 CPPFLAGS=-I.
-CFLAGS=$(O_LEVEL)
+CFLAGS=$(O_LEVEL) -g
 
 clean:
 	rm -f *.o t/*.o *.a wvtestmain
