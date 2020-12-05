@@ -5,7 +5,7 @@ LIBAOCTARGET=../../libaoc/libaoc.a
 CPPFLAGS=-I../../libaoc
 LDFLAGS=-L../../libaoc -laoc
 
-CFLAGS=-O1 -Wall
+CFLAGS=-O1 -g -Wall
 
 PROG=main
 
